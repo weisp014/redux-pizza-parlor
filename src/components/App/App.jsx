@@ -1,11 +1,37 @@
 import React from 'react';
 import axios from 'axios';
 import './App.css';
+import CustomerForm from '../CustomerForm/CustomerForm';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import PizzaList from '../PizzaList/PizzaList';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom';
 import { HashRouter as Router, Route, Link } from 'react-router-dom'
 
 function App() {
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    fetchPizza();
+  })
+
+
+
+const fetchPizza = () => {
+  console.log('inside fetchPizza()')
+  axios.get('/api/pizza')
+  .then(response => {
+    dispatch({ type: 'GET_PIZZA', payload: response.data})
+  })
+  .catch(error => {
+    console.log('error')
+  })
+}
+
+
+
 
   // confirm stores for customer info, pizzas selected/in cart. These will be used in
   // newOrder, below, as well as rendering the checkout page (one or both?)
@@ -61,9 +87,10 @@ function App() {
       </header>
       </div>
       {/* Get pizza list and display */}
+      <PizzaList />
 
       {/* Customer Form */}
-
+      <CustomerForm />
       {/* Checkout */}
 
       <h1>Step 3: Checkout</h1>
@@ -95,7 +122,7 @@ function App() {
 
       {/* Admin */}
 
-      <div className="adminHeader">
+      {/* <div className="adminHeader">
         <h1>Prime Pizza Orders</h1>
       </div>
       <table>
@@ -121,7 +148,7 @@ function App() {
           <td>$$$</td>
         </tr>
       </tbody>
-      </table>
+      </table> */}
 
       {/* <img src='images/pizza_photo.png' />
       <p>Pizza is great.</p> */}
