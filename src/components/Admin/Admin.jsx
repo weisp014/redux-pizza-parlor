@@ -3,7 +3,7 @@ import { useSelector } from "react-redux"
 function AdminPage() {
 
     const adminCustomerInfo = useSelector(store => store.customerInfo)
-
+    // const adminPizzaInfo = useSelector(store => ????)
 
     return (
         <>
@@ -22,15 +22,15 @@ function AdminPage() {
                 <tbody>
                     <tr>
                         <td>{adminCustomerInfo.name}</td>
-                        <td>Time Order Placed</td>
-                        <td>Pickup</td>
-                        <td>$$</td>
+                        <td>The Dang Future</td>
+                        <td>{adminCustomerInfo.deliveryOption}</td>
+                        <td>$$$$$$</td>
                     </tr>
                     <tr>
                         <td>Sample Name 2</td>
-                        <td>Time Order Placed 2</td>
-                        <td>Delivery 2</td>
-                        <td>$$$</td>
+                        <td>2025</td>
+                        <td>Unicycle</td>
+                        <td>$$$$$$</td>
                     </tr>
                 </tbody>
             </table>
