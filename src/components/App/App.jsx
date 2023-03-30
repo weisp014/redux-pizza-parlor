@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom';
+import { HashRouter as Router, Route, Link } from 'react-router-dom'
 
 function App() {
 
@@ -53,10 +54,12 @@ function App() {
   } // end handleCheckout
 
   return (
+    <>
     <div className='App'>
       <header className='App-header'>
         <h1 className='App-title'>Prime Pizza</h1>
       </header>
+      </div>
       {/* Get pizza list and display */}
 
       {/* Customer Form */}
@@ -67,6 +70,7 @@ function App() {
       <div>Container for customer info</div>
       <p>Customer Info, address, etc</p>
       <p>On right side - delivery/pickup</p>
+      <table>
       <thead>
         <tr>
           <th>Name</th>
@@ -83,6 +87,7 @@ function App() {
           <td>cost of pizza #2</td>
         </tr>
       </tbody>
+      </table>
       <div>
         Total: $TotalGoesHere
       </div>
@@ -93,6 +98,7 @@ function App() {
       <div className="adminHeader">
         <h1>Prime Pizza Orders</h1>
       </div>
+      <table>
       <thead>
         <tr>
           <th>Name</th>
@@ -115,11 +121,11 @@ function App() {
           <td>$$$</td>
         </tr>
       </tbody>
+      </table>
 
       {/* <img src='images/pizza_photo.png' />
       <p>Pizza is great.</p> */}
-
-    </div>
+    </>
   );
 }
 
