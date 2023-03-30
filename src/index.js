@@ -18,6 +18,11 @@ const cart = (state = [], action) => {
   if(action.type === 'ADD_TO_CART'){
     return [...state, action.payload]
   }
+  else if(action.type === 'REMOVE_FROM_CART' ){
+    return state.filter(element => element !== action.payload);
+    //this syntax loops through the state and returns everything that is not a match in a new array
+    //element is a free variable like in for loops
+  }
   return state
 }
 
@@ -39,6 +44,9 @@ const storeInstance = createStore(
   }),
   applyMiddleware(logger)
 );
+
+// post route to add data to tables upon checkout
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
