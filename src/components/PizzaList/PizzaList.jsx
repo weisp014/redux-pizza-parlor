@@ -1,12 +1,16 @@
 import { useSelector } from "react-redux"
 import PizzaItem from "../PizzaItem/PizzaItem"
+import { useHistory } from 'react-router-dom';
+
 
 function PizzaList() {
     const pizzaList = useSelector(store => store.pizzaList)
 
-   
+   const history = useHistory();
 
-
+   const handleClick = () => {
+    history.push('/custInfo')
+   }
 
     // console.log('pizzalist:', pizzaList)
     return (
@@ -22,7 +26,7 @@ function PizzaList() {
             )}
             </div>
 
-
+                <button onClick={handleClick}>NEXT</button>
 
 
 

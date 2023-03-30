@@ -41,13 +41,10 @@ const fetchPizza = () => {
 
       <Checkout />
 
-      {/* Admin */}
 
       <AdminPage />
 
-      {/* <img src='images/pizza_photo.png' />
-      <p>Pizza is great.</p> */}
-    
+
     </div>
   );
 }
