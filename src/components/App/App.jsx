@@ -5,6 +5,9 @@ import CustomerForm from '../CustomerForm/CustomerForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import PizzaList from '../PizzaList/PizzaList';
+import Checkout from '../Checkout/Checkout';
+import AdminPage from '../Admin/Admin';
+
 import HeaderWithCart from '../HeaderWithCart/HeaderWithCart';
 
 function App() {
@@ -36,6 +39,15 @@ const fetchPizza = () => {
 
       <CustomerForm />
 
+      <Checkout />
+
+      {/* Admin */}
+
+      <AdminPage />
+
+      {/* <img src='images/pizza_photo.png' />
+      <p>Pizza is great.</p> */}
+    
     </div>
   );
 }
