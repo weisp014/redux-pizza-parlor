@@ -28,9 +28,6 @@ const fetchPizza = () => {
   })
 }
 
-
-
-
   return (
     <div className='App'>
       <HeaderWithCart />
