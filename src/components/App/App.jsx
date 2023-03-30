@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import './App.css';
+import CustomerForm from '../CustomerForm/CustomerForm';
 
 function App() {
 
@@ -12,7 +13,7 @@ function App() {
       {/* Get pizza list and display */}
 
       {/* Customer Form */}
-
+      <CustomerForm />
       {/* Checkout */}
 
       {/* Admin */}
