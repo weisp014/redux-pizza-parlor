@@ -18,16 +18,18 @@ function App() {
     fetchPizza();
   })
 
-  const fetchPizza = () => {
-    console.log('inside fetchPizza()')
-    axios.get('/api/pizza')
-      .then(response => {
-        dispatch({ type: 'GET_PIZZA', payload: response.data })
-      })
-      .catch(error => {
-        console.log('error')
-      })
-  }
+
+
+const fetchPizza = () => {
+  console.log('inside fetchPizza()')
+  axios.get('/api/pizza')
+  .then(response => {
+    dispatch({ type: 'GET_PIZZA', payload: response.data})
+  })
+  .catch(error => {
+    console.log('error')
+  })
+}
 
   return (
     <div className='App'>

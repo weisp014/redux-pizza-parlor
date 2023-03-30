@@ -11,7 +11,7 @@ function PizzaList() {
     // console.log('pizzalist:', pizzaList)
     return (
         <>
-            <h2>step 1: Select Your Pizza</h2>
+            <h2>Step 1: Select Your Pizza</h2>
 
 
             <div>
