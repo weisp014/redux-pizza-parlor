@@ -15,6 +15,9 @@ const storeInstance = createStore(
   applyMiddleware(logger)
 );
 
+// post route to add data to tables upon checkout
+
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
