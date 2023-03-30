@@ -7,7 +7,6 @@ import { useEffect } from 'react';
 import PizzaList from '../PizzaList/PizzaList';
 import Checkout from '../Checkout/Checkout';
 import AdminPage from '../Admin/Admin';
-
 import HeaderWithCart from '../HeaderWithCart/HeaderWithCart';
 
 function App() {

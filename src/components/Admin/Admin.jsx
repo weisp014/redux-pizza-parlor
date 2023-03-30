@@ -1,27 +1,28 @@
 import { useState, useEffect } from "react"
 import axios from "axios";
 
+
 function AdminPage() {
-
     useEffect(() => {
-        fetchAdminData()
-      }, []);
-
-    const [adminPizzaInfo, setAdminPizzaInfo] = useState({})
+        fetchAdminData();
+        
+    }, [])
+    
+    const [adminPizzaInfo, setAdminPizzaInfo] = useState([])
     // get request for orders
 
     const fetchAdminData = () => {
-        
+
         axios.get('/api/order')
-        .then(response => {
-            console.log(`response.data:`, response.data);
-          setAdminPizzaInfo(response.data)
-          
-        })
-        .catch(error => {
-          console.log('error')
-        })
-      }
+            .then(response => {
+                console.log(`response.data:`, response.data);
+                setAdminPizzaInfo(response.data)
+                
+            })
+            .catch(error => {
+                console.log('error')
+            })
+    }
 
 
     return (
@@ -41,15 +42,15 @@ function AdminPage() {
                 </thead>
                 <tbody>
 
-                     {adminPizzaInfo.map((line, i) => 
-                     <tr>
-                        <td>{line.customer_name}</td>
-                        <td>{line.time}</td>
-                        <td>{line.type}</td>
-                        <td>{line.total}</td>
-                     </tr>
-                     )}
-                    
+                    {/* {adminPizzaInfo ?? adminPizzaInfo.map((line, i) =>
+                        <tr key={i}>
+                            <td>{line.customer_name}</td>
+                            <td>{line.time}</td>
+                            <td>{line.type}</td>
+                            <td>{line.total}</td>
+                        </tr>
+                    )} */}
+
                 </tbody>
             </table>
         </>
