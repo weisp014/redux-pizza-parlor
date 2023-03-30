@@ -42,14 +42,14 @@ function AdminPage() {
                 </thead>
                 <tbody>
 
-                    {/* {adminPizzaInfo ?? adminPizzaInfo.map((line, i) =>
+                    { adminPizzaInfo.map((line, i) =>
                         <tr key={i}>
                             <td>{line.customer_name}</td>
                             <td>{line.time}</td>
                             <td>{line.type}</td>
                             <td>{line.total}</td>
                         </tr>
-                    )} */}
+                    )}
 
                 </tbody>
             </table>
