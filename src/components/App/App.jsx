@@ -8,6 +8,7 @@ import PizzaList from '../PizzaList/PizzaList';
 import Checkout from '../Checkout/Checkout';
 import AdminPage from '../Admin/Admin';
 
+import HeaderWithCart from '../HeaderWithCart/HeaderWithCart';
 
 function App() {
 
@@ -29,18 +30,12 @@ function App() {
   }
 
   return (
-    <>
-      <div className='App'>
-        <header className='App-header'>
-          <h1 className='App-title'>Prime Pizza</h1>
-        </header>
-      </div>
-      {/* Get pizza list and display */}
+    <div className='App'>
+      <HeaderWithCart />
+     
       <PizzaList />
 
-      {/* Customer Form */}
       <CustomerForm />
-      {/* Checkout */}
 
       <Checkout />
 
@@ -50,7 +45,8 @@ function App() {
 
       {/* <img src='images/pizza_photo.png' />
       <p>Pizza is great.</p> */}
-    </>
+    
+    </div>
   );
 }
 
