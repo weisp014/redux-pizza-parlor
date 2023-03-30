@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import './App.css';
+import CustomerForm from '../CustomerForm/CustomerForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import PizzaList from '../PizzaList/PizzaList';
@@ -38,7 +39,7 @@ const fetchPizza = () => {
       <PizzaList />
 
       {/* Customer Form */}
-
+      <CustomerForm />
       {/* Checkout */}
 
       {/* Admin */}
