@@ -18,7 +18,7 @@ function Checkout() {
         return sum
         
     }
-    
+    let checkoutTotal = totalPrice(checkoutCart)
     
 
     const handleCheckout = () => {
@@ -33,8 +33,8 @@ function Checkout() {
             street_address: checkoutCustomerInfo.address,
             city: checkoutCustomerInfo.city,
             zip: checkoutCustomerInfo.zip,
-            total: "27.98",
-            type: "Pickup",
+            total: checkoutTotal,
+            type: checkoutCustomerInfo.deliveryOption,
             // these are really irrelevant pre-stretch goals.
             pizzas: [{
                 id: '1',
@@ -91,7 +91,7 @@ function Checkout() {
                 </tbody>
             </table>
             <div>
-                Total: ${totalPrice(checkoutCart)}
+                Total: ${checkoutTotal}
             </div>
             <button onClick={handleCheckout}>Checkout</button>
         </>
