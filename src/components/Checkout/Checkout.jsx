@@ -19,7 +19,7 @@ function Checkout() {
         
     }
     
-    let checkOutTotal = totalPrice(checkoutCart)
+    let checkoutTotal = totalPrice(checkoutCart);
 
     const handleCheckout = () => {
         // console.log(`checkoutCustomerInfo`, checkoutCustomerInfo);
@@ -33,7 +33,7 @@ function Checkout() {
             street_address: checkoutCustomerInfo.address,
             city: checkoutCustomerInfo.city,
             zip: checkoutCustomerInfo.zip,
-            total: checkOutTotal,
+            total: checkoutTotal,
             type: checkoutCustomerInfo.deliveryOption,
             // these are really irrelevant pre-stretch goals.
             pizzas: [{
