@@ -1,12 +1,12 @@
-import React from 'react';
-import axios from 'axios';
-import './App.css';
-import CustomerForm from '../CustomerForm/CustomerForm';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import PizzaList from '../PizzaList/PizzaList';
-import HeaderWithCart from '../HeaderWithCart/HeaderWithCart';
-import { HashRouter,  } from 'react-router-dom';
+import React from "react";
+import axios from "axios";
+import "./App.css";
+import CustomerForm from "../CustomerForm/CustomerForm";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import PizzaList from "../PizzaList/PizzaList";
+import HeaderWithCart from "../HeaderWithCart/HeaderWithCart";
+import { HashRouter as Router, Route, Link } from "react-router-dom";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,18 +32,18 @@ function App() {
       <Router>
         {/* Get pizza list and display */}
         <Route exact path="/">
-        <HeaderWithCart />
-        <PizzaList />
+          <HeaderWithCart />
+          <PizzaList />
         </Route>
 
         {/* Customer Form */}
-        <Route path="custInfo">
-        <CustomerForm />
+        <Route path="/custInfo">
+          <CustomerForm />
         </Route>
         {/* Checkout */}
 
         {/* Admin */}
-
+      </Router>
     </div>
   );
 }
