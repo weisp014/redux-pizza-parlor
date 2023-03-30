@@ -16,9 +16,11 @@ const dispatch = useDispatch();
 
 return(
     <>
-     <div key={pizza.id}> 
-                  {pizza.name} {pizza.description} {pizza.price} <img src={pizza.image_path} alt="pic of pizza" />           
-                   <button onClick ={() => addToCart()}>Add</button>
+     <div key={pizza.id}>
+                  {pizza.name} {pizza.description} {pizza.price}<br /> <img width='200rem' src={pizza.image_path} alt="pic of pizza" />           
+                   <br /><button onClick ={() => addToCart()}>Add</button>
+                   <br />
+                   <br />
                   </div>
     </>
 )

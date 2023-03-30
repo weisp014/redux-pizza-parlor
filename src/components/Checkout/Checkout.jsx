@@ -7,10 +7,23 @@ function Checkout() {
     const history = useHistory();
 
     const checkoutCustomerInfo = useSelector(store => store.customerInfo)
-    const checkoutPizzaInfo = useSelector(store => store.pizzaInfo)
+    const checkoutCart = useSelector(store => store.cart)
+
+    const totalPrice = (input) => {
+        let sum = 0;
+        for (let i=0; i<input.length; i++) {
+            sum += Number(input[i].price)
+        }
+        console.log(`Sum after adds:`, sum);
+        return sum
+        
+    }
+    
+    
 
     const handleCheckout = () => {
-        console.log(`checkoutCustomerInfo`, checkoutCustomerInfo);
+        // console.log(`checkoutCustomerInfo`, checkoutCustomerInfo);
+        console.log(`checkoutPizzaInfo`, checkoutCart);
         // confirm stores for customer info, pizzas selected/in cart. These will be used in
         // newOrder, below, as well as rendering the checkout page (one or both?)
 
@@ -32,6 +45,7 @@ function Checkout() {
             }]
         }
 
+        
         // POST route to add order information to DB
         axios.post('/api/order', newOrder)
             .then(response => {
@@ -54,12 +68,12 @@ function Checkout() {
         <>
             <h1>Step 3: Checkout</h1>
             <div>Container for customer info</div>
-            <p>{checkoutCustomerInfo.name}<br /> 
-            {checkoutCustomerInfo.address}<br />
-            {checkoutCustomerInfo.city}, {checkoutCustomerInfo.zip}</p>
-            
-        
-            
+            <p>{checkoutCustomerInfo.name}<br />
+                {checkoutCustomerInfo.address}<br />
+                {checkoutCustomerInfo.city}, {checkoutCustomerInfo.zip}</p>
+
+
+
             <table>
                 <thead>
                     <tr>
@@ -68,18 +82,16 @@ function Checkout() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Name of Pizza #1</td>
-                        <td>cost of Pizza #1</td>
-                    </tr>
-                    <tr>
-                        <td>name of pizza #2</td>
-                        <td>cost of pizza #2</td>
-                    </tr>
+                    {checkoutCart.map((pizza, i) =>
+                        <tr key={i}>
+                            <td>{pizza.name}</td>
+                            <td>${pizza.price}</td>
+                        </tr>
+                    )}
                 </tbody>
             </table>
             <div>
-                Total: $TotalGoesHere
+                Total: ${totalPrice(checkoutCart)}
             </div>
             <button onClick={handleCheckout}>Checkout</button>
         </>
