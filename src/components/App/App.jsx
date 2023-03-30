@@ -5,6 +5,7 @@ import CustomerForm from '../CustomerForm/CustomerForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import PizzaList from '../PizzaList/PizzaList';
+import HeaderWithCart from '../HeaderWithCart/HeaderWithCart';
 
 function App() {
 
@@ -32,21 +33,12 @@ const fetchPizza = () => {
 
   return (
     <div className='App'>
-      <header className='App-header'>
-        <h1 className='App-title'>Prime Pizza</h1>
-      </header>
-      {/* Get pizza list and display */}
+      <HeaderWithCart />
+     
       <PizzaList />
 
-      {/* Customer Form */}
       <CustomerForm />
-      {/* Checkout */}
 
-      {/* Admin */}
-  
-      {/* <img src='images/pizza_photo.png' />
-      <p>Pizza is great.</p> */}
-  
     </div>
   );
 }
