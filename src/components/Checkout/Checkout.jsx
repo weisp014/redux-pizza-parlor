@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios'
 
 function Checkout() {
     const dispatch = useDispatch()
@@ -7,18 +8,18 @@ function Checkout() {
 
     const checkoutCustomerInfo = useSelector(store => store.customerInfo)
     const checkoutPizzaInfo = useSelector(store => store.pizzaInfo)
-    
-    const handleCheckout = () => {
 
+    const handleCheckout = () => {
+        console.log(`checkoutCustomerInfo`, checkoutCustomerInfo);
         // confirm stores for customer info, pizzas selected/in cart. These will be used in
         // newOrder, below, as well as rendering the checkout page (one or both?)
 
 
         const newOrder = {
-            customer_name: "Donatello",
-            street_address: "20 W 34th St",
-            city: "New York",
-            zip: "10001",
+            customer_name: checkoutCustomerInfo.name,
+            street_address: checkoutCustomerInfo.address,
+            city: checkoutCustomerInfo.city,
+            zip: checkoutCustomerInfo.zip,
             total: "27.98",
             type: "Pickup",
             // these are really irrelevant pre-stretch goals.
@@ -53,8 +54,12 @@ function Checkout() {
         <>
             <h1>Step 3: Checkout</h1>
             <div>Container for customer info</div>
-            <p>Customer Info, address, etc</p>
-            <p>On right side - delivery/pickup</p>
+            <p>{checkoutCustomerInfo.name}<br /> 
+            {checkoutCustomerInfo.address}<br />
+            {checkoutCustomerInfo.city}, {checkoutCustomerInfo.zip}</p>
+            
+        
+            
             <table>
                 <thead>
                     <tr>

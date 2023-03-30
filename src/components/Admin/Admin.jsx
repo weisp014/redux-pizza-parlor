@@ -1,4 +1,10 @@
+import { useSelector } from "react-redux"
+
 function AdminPage() {
+
+    const adminCustomerInfo = useSelector(store => store.customerInfo)
+
+
     return (
         <>
             <div className="adminHeader">
@@ -15,7 +21,7 @@ function AdminPage() {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Sample Name</td>
+                        <td>{adminCustomerInfo.name}</td>
                         <td>Time Order Placed</td>
                         <td>Pickup</td>
                         <td>$$</td>
