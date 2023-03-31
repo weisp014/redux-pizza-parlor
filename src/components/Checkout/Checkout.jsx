@@ -61,7 +61,7 @@ function Checkout() {
             payload: []
         })
         // redirect to main page. Not working?
-        // history.push('/')
+        history.push('/')
     } // end handleCheckout
 
     return (
