@@ -1,7 +1,9 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 function CustomerForm() {
+  const history = useHistory();
   const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
@@ -33,8 +35,8 @@ function CustomerForm() {
 
   const handleDeliveryOption = (event) => {
     setDeliveryOption(event.target.value);
-    console.log('delivery option:', event.target.value);
-  }
+    console.log("delivery option:", event.target.value);
+  };
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -51,6 +53,10 @@ function CustomerForm() {
   const handleZipChange = (event) => {
     setZip(event.target.value);
   };
+
+  const nextHandler = () => {
+    history.push('/checkout');
+  }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -90,17 +96,26 @@ function CustomerForm() {
       </div>
       <p>
         <label>
-            <input type="radio" name="deliveryOption" value="delivery" defaultChecked={true} onChange={handleDeliveryOption} />
-            Delivery
+          <input
+            type="radio"
+            name="deliveryOption"
+            value="delivery"
+            defaultChecked={true}
+            onChange={handleDeliveryOption}
+          />
+          Delivery
         </label>
         <label>
-            <input type="radio" name="deliveryOption" value="takeout" onChange={handleDeliveryOption} />
-            Takeout
+          <input
+            type="radio"
+            name="deliveryOption"
+            value="takeout"
+            onChange={handleDeliveryOption}
+          />
+          Takeout
         </label>
       </p>
-
-      <button type="submit">NEXT</button>
-      {/* TODO: pickup or delivery option */}
+      <button onClick={() => {nextHandler()}} type="submit">NEXT</button>
     </form>
   );
 }
