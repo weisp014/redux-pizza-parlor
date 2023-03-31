@@ -40,6 +40,7 @@ function App() {
 
         {/* Customer Form */}
         <Route exact path="/custInfo">
+          <HeaderWithCart />
           <CustomerForm />
         </Route>
 
