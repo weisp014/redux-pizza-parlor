@@ -48,13 +48,15 @@ function App() {
           <Checkout />
         </Route>
 
-      {/* Admin */}
+        {/* Admin */}
+        <Route exact path="/admin">
+          <AdminPage />
+        </Route>
 
-      <AdminPage />
-
+      </Router>
       {/* <img src='images/pizza_photo.png' />
       <p>Pizza is great.</p> */}
-    
+
     </div>
   );
 }
