@@ -10,6 +10,8 @@ const customerInfo = (state = {}, action) => {
     if (action.type === 'NEW_CUSTOMER') {
         console.log('customer info:', action.payload);
         return action.payload;
+    } else if (action.type === 'CHECKOUT') {
+      return {};
     }
     return state;
 }
@@ -22,6 +24,9 @@ const cart = (state = [], action) => {
     return state.filter(element => element !== action.payload);
     //this syntax loops through the state and returns everything that is not a match in a new array
     //element is a free variable like in for loops
+  }
+  else if(action.type === 'CHECKOUT') {
+    return [];
   }
   return state
 }

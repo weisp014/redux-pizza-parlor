@@ -30,7 +30,7 @@ function AdminPage() {
             <div className="adminHeader">
                 <h1>Prime Pizza Orders</h1>
             </div>
-            <button onClick={fetchAdminData}>XXX</button>
+            <button onClick={fetchAdminData}>Manually Update</button>
             <table>
                 <thead>
                     <tr>
