@@ -18,8 +18,8 @@ function Checkout() {
         return sum
         
     }
+    let checkoutTotal = totalPrice(checkoutCart)
     
-    let checkoutTotal = totalPrice(checkoutCart);
 
     const handleCheckout = () => {
         // console.log(`checkoutCustomerInfo`, checkoutCustomerInfo);
@@ -91,7 +91,7 @@ function Checkout() {
                 </tbody>
             </table>
             <div>
-                Total: ${totalPrice(checkoutCart)}
+                Total: ${checkoutTotal}
             </div>
             <button onClick={handleCheckout}>Checkout</button>
         </>
