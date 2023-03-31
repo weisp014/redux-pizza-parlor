@@ -12,4 +12,15 @@
 
 .App-title {
   font-size: 2em;
+  display: flex;
+}
+
+.title-combo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.total {
+  display: flex;
+  font-size: 2em;
 }
