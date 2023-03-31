@@ -1,15 +1,36 @@
-import { useSelector } from "react-redux"
+import { useState, useEffect } from "react"
+import axios from "axios";
+
 
 function AdminPage() {
+    useEffect(() => {
+        fetchAdminData();
+        
+    }, [])
+    
+    const [adminPizzaInfo, setAdminPizzaInfo] = useState([])
+    // get request for orders
 
-    const adminCustomerInfo = useSelector(store => store.customerInfo)
-    // const adminPizzaInfo = useSelector(store => ????)
+    const fetchAdminData = () => {
+
+        axios.get('/api/order')
+            .then(response => {
+                console.log(`response.data:`, response.data);
+                setAdminPizzaInfo(response.data)
+                
+            })
+            .catch(error => {
+                console.log('error')
+            })
+    }
+
 
     return (
         <>
             <div className="adminHeader">
                 <h1>Prime Pizza Orders</h1>
             </div>
+            <button onClick={fetchAdminData}>XXX</button>
             <table>
                 <thead>
                     <tr>
@@ -20,18 +41,16 @@ function AdminPage() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>{adminCustomerInfo.name}</td>
-                        <td>The Dang Future</td>
-                        <td>{adminCustomerInfo.deliveryOption}</td>
-                        <td>$$$$$$</td>
-                    </tr>
-                    <tr>
-                        <td>Sample Name 2</td>
-                        <td>2025</td>
-                        <td>Unicycle</td>
-                        <td>$$$$$$</td>
-                    </tr>
+
+                    { adminPizzaInfo.map((line, i) =>
+                        <tr key={i}>
+                            <td>{line.customer_name}</td>
+                            <td>{line.time}</td>
+                            <td>{line.type}</td>
+                            <td>{line.total}</td>
+                        </tr>
+                    )}
+
                 </tbody>
             </table>
         </>

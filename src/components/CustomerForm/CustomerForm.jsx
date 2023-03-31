@@ -31,6 +31,8 @@ function CustomerForm() {
     setAddress("");
     setCity("");
     setZip("");
+    // route to new path
+    history.push('/checkout');
   };
 
   const handleDeliveryOption = (event) => {
@@ -54,9 +56,6 @@ function CustomerForm() {
     setZip(event.target.value);
   };
 
-  const nextHandler = () => {
-    history.push('/checkout');
-  }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -115,7 +114,7 @@ function CustomerForm() {
           Takeout
         </label>
       </p>
-      <button onClick={() => {nextHandler()}} type="submit">NEXT</button>
+      <button type="submit">NEXT</button>
     </form>
   );
 }
