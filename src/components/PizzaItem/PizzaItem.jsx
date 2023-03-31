@@ -38,8 +38,10 @@ return(
                    <button onClick ={() => removeFromCart()}>remove</button>
 
                     }
-
+                    
                   </div>
+
+                  
     </>
 )
 }
