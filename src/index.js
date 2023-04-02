@@ -22,8 +22,6 @@ const cart = (state = [], action) => {
   }
   else if(action.type === 'REMOVE_FROM_CART' ){
     return state.filter(element => element !== action.payload);
-    //this syntax loops through the state and returns everything that is not a match in a new array
-    //element is a free variable like in for loops
   }
   else if(action.type === 'CHECKOUT') {
     return [];
@@ -44,7 +42,7 @@ const storeInstance = createStore(
     //list of reducers here
     pizzaList,
     customerInfo,
-     cart
+    cart,
     
   }),
   applyMiddleware(logger)

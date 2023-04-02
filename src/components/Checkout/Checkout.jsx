@@ -14,7 +14,6 @@ function Checkout() {
         for (let i=0; i<input.length; i++) {
             sum += Number(input[i].price)
         }
-        console.log(`Sum after adds:`, sum);
         return sum
         
     }
@@ -22,7 +21,6 @@ function Checkout() {
     
 
     const handleCheckout = () => {
-        // console.log(`checkoutCustomerInfo`, checkoutCustomerInfo);
         console.log(`checkoutPizzaInfo`, checkoutCart);
         // confirm stores for customer info, pizzas selected/in cart. These will be used in
         // newOrder, below, as well as rendering the checkout page (one or both?)

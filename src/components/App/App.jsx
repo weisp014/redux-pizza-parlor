@@ -3,7 +3,7 @@ import React from "react";
 import axios from "axios";
 import "./App.css";
 import CustomerForm from "../CustomerForm/CustomerForm";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import PizzaList from "../PizzaList/PizzaList";
 import Checkout from "../Checkout/Checkout";
@@ -18,14 +18,13 @@ function App() {
   });
 
   const fetchPizza = () => {
-    console.log("inside fetchPizza()");
     axios
       .get("/api/pizza")
       .then((response) => {
         dispatch({ type: "GET_PIZZA", payload: response.data });
       })
       .catch((error) => {
-        console.log("error");
+        console.log("error:", error);
       });
   };
 
@@ -37,27 +36,20 @@ function App() {
           <HeaderWithCart />
           <PizzaList />
         </Route>
-
         {/* Customer Form */}
         <Route exact path="/custInfo">
           <HeaderWithCart />
           <CustomerForm />
         </Route>
-
         {/* Checkout */}
         <Route exact path="/checkout">
           <Checkout />
         </Route>
-
         {/* Admin */}
         <Route exact path="/admin">
           <AdminPage />
         </Route>
-
       </Router>
-      {/* <img src='images/pizza_photo.png' />
-      <p>Pizza is great.</p> */}
-
     </div>
   );
 }
