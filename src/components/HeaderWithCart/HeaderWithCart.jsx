@@ -7,7 +7,6 @@ function HeaderWithCart() {
     let total = 0;
     cart.map((item) => {
       total += Number(item.price);
-      console.log("looking at item price", total);
     });
     return total;
   };
