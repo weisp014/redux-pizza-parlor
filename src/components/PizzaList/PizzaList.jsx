@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import PizzaItem from "../PizzaItem/PizzaItem";
 import { useHistory } from "react-router-dom";
 import Grid from "@mui/material/Grid";
+import Button from "@mui/material/Button";
 
 function PizzaList() {
   const pizzaList = useSelector((store) => store.pizzaList);
@@ -19,7 +20,9 @@ function PizzaList() {
           <PizzaItem key={pizza.id} pizza={pizza} />
         ))}
       </Grid>
-      <button onClick={handleClick}>NEXT</button>
+      <div className="nextBtn">
+      <Button variant="contained" onClick={handleClick}>NEXT</Button>
+      </div>
     </>
   );
 }

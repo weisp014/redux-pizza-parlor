@@ -24,3 +24,33 @@
   display: flex;
   font-size: 2em;
 }
+
+.nextBtn {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+}
+
+.custFields {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.custInputs {
+  display: flex;
+  margin-bottom: 1em;
+}
+
+.delivOption {
+  display: flex;
+  margin-bottom: 1em;
+}
